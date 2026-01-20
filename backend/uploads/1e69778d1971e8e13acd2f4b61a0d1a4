@@ -1,0 +1,102 @@
+Delivered-To: akshaysachu727@gmail.com
+Received: by 2002:a17:907:3c8d:b0:b86:f7fd:212a with SMTP id gl13csp2196355ejc;
+        Mon, 19 Jan 2026 02:15:35 -0800 (PST)
+X-Received: by 2002:a05:7300:5b9f:b0:2a4:3593:6453 with SMTP id 5a478bee46e88-2b6b3eee1b8mr7964442eec.3.1768817735561;
+        Mon, 19 Jan 2026 02:15:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768817735; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bf2jOOGD0/gWHw4r1dDh9HQRkLtxNT7JPesJj/KyA0GJSmL/HHlo4ikTQSKjrCDotH
+         WCHq1KMoZEE75SXISlWVZEjtmFiw9WePo4JV0PSpjoBE3x+KfQdiLYqQZBZrMZ9CYrIE
+         tzPcMHd9xPgDT9T2wElgZJLTFKU+lsEFa7ECld7ftWlk7PjFenXNVrmA0+hJOzR+B793
+         9+WHdtwKT4rzOtvr7XSLflLS2pGpF/IYb5nj2RzVq4MApMUsR/Dt8qU69JY17p2s+bXg
+         jqindI1l7iz9s9BzIUfq+WeZM812R8wRU6ctvjSSjYXwcZt+4fKkxUfuaRqKC/ppxNcu
+         O9Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:subject:message-id:to:from
+         :date:dkim-signature;
+        bh=OzofFfzL3G/2gGWg5bF+9EPbfKSBKYJH3308Sxbg8pY=;
+        fh=zouXkqrp2j6zCZ6ajODdBWQMrVxJnyUUTxmw04ajC5s=;
+        b=eZVtDcNkwvjR7P2txy37Mw3mfLChHHDYjGww9beatMbZgPI8FILM55mCyy2FGcLg6L
+         yrPVGqJBHxaCPdd409sJulZVs1zOCK8FZE2usZKMozjgHSZCtXGV8JntG6aR02Lo9sGR
+         o2UgDajwMOmLgvFHotfHx3b17Jjz5tUM2OxfdHj6tiBLudpZ5KjZAvq5pK/9LvCTkHwl
+         EwAG9vl9115xlQgCbqFhpuKwLk/1MRykfMolkzObPBIoJJ1pNgmgDKDpPHgMWxdn3JuW
+         vARa8cErM6rztSSweliq9xatweOVvyNorZRnN+S7KRXUgVlKQNrzVKlesfBOpnMPdLgQ
+         Wmbw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@oracle.com header.s=dkoracle-saasemail header.b=AY6noPYA;
+       spf=pass (google.com: domain of noreply@oracle.com designates 129.148.11.195 as permitted sender) smtp.mailfrom=noreply@oracle.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=oracle.com
+Return-Path: <noreply@oracle.com>
+Received: from smtp4.email.us-phoenix-1.ocs.oraclecloud.com (smtp4.email.us-phoenix-1.ocs.oraclecloud.com. [129.148.11.195])
+        by mx.google.com with ESMTPS id 5a478bee46e88-2b6b368f4easi38096767eec.75.2026.01.19.02.15.35
+        for <akshaysachu727@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Jan 2026 02:15:35 -0800 (PST)
+Received-SPF: pass (google.com: domain of noreply@oracle.com designates 129.148.11.195 as permitted sender) client-ip=129.148.11.195;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@oracle.com header.s=dkoracle-saasemail header.b=AY6noPYA;
+       spf=pass (google.com: domain of noreply@oracle.com designates 129.148.11.195 as permitted sender) smtp.mailfrom=noreply@oracle.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=oracle.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=dkoracle-saasemail;
+ d=oracle.com;
+ h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
+ bh=OzofFfzL3G/2gGWg5bF+9EPbfKSBKYJH3308Sxbg8pY=;
+ b=AY6noPYAQBYqQigoGhY2K/vdnLC5C7gNtAT30kgT28jRLhUZUGBn+BPHC80NbsnQn09ANYIDvI5S
+   Y79HhUAcjukxY2SigiIivjsuGcBidgYfQVCEfozbQ28zRNsDu3kVixXJt2Pat7VwomaL8nFh/zxB
+   bg+D0C0JY9uu2s5Ss7SLAVHhgTc7Cw4cXlu6U/7cm64mise8F8qtRQ3JSM2Kcgpzk5l+MGqX6Lkv
+   nyfIpqPhFh5nOvKDEsVpkv/gtlEALf1OHKr2PieJUVm5CdkMH90xAK+SPUl3dsdDuN3IoI+8M79+
+   kYkPiTrMxP3F4/E7wxeA/zgKUEPlshhOfAH4Cw==
+Received: from dkim-sign.oraclecloud.com by
+ smtp4.email.us-phoenix-1.ocs.oraclecloud.com
+ (Oracle Communications Messaging Server 8.1.0.1.20250220 64bit (built Feb 20
+ 2025)) id <0T931RJ00WHBMN00@smtp4.email.us-phoenix-1.ocs.oraclecloud.com> for
+ akshaysachu727@gmail.com; Mon, 19 Jan 2026 10:15:35 +0000 (GMT)
+Received: from eeho-auxvm52.eeho3.mdt02phx01prd.oraclevcn.com
+ (nlb-outbound-smtp.mta.email.oraclevcn.com [10.33.0.97])
+ by smtp4.email.us-phoenix-1.ocs.oraclecloud.com
+ (Oracle Communications Messaging Server 8.1.0.1.20250220 64bit (built Feb 20
+ 2025))
+ with ESMTPSA id <0T931RHGRWHZBM20@smtp4.email.us-phoenix-1.ocs.oraclecloud.com> for
+ akshaysachu727@gmail.com; Mon, 19 Jan 2026 10:15:35 +0000 (GMT)
+Date: Mon, 19 Jan 2026 10:15:34 +0000 (UTC)
+From: Oracle Talent Acquisition <noreply@oracle.com>
+To: akshaysachu727@gmail.com
+Message-id: <d5c0b263ac177606277c873175771fa5.ums@oracle.com>
+Subject: Your Oracle identity verification
+MIME-version: 1.0
+Content-type: text/html; charset=utf-8
+Content-transfer-encoding: 7bit
+X-Priority: 1
+X-EmailDriver-Message-ID: d5c0b548ac1776b138eef4f7cf5e4202
+
+<table style="width: 425px;">
+ <tbody>
+  <tr>
+   <td style="width: 413px;">
+    <table style="width: 412px;">
+     <tbody>
+      <tr>
+       <td style="width: 400px;"><img alt="" src="https://www.oracle.com/a/ocom/img/hr-serv-ebanner.png" width="450"></td>
+      </tr>
+      <tr>
+       <td style="width: 400px;"><br/> 
+        <p><span style="font-size:12px;color:5f5f5f;"> <span style="font-family:Oracle Sans,helvetica,sans-serif;"> Dear , <br/> </span> </span></p>
+        <p><span style="font-size:12px;color:5f5f5f;"> <span style="font-family:Oracle Sans,helvetica,sans-serif;"> Just one more step before you get started. </span> </span></p>
+        <p><span style="font-size:12px;color:5f5f5f;"> <span style="font-family:Oracle Sans,helvetica,sans-serif;"> You must confirm your identity using this one-time pass code: 495896 </span> </span></p></td>
+      </tr>
+      <tr>
+       <td style="width: 400px;"><span style="font-size:12px;color:5f5f5f;"> <span style="font-family:Oracle Sans,helvetica,sans-serif;"> Note: This code will expire in 10 minutes. <br/><br/><br/> Sincerely, <br/><br/> Oracle Human Resources<br/><br/></span> </span></td>
+      </tr>
+      <tr>
+       <td style="font-size: 9px;color:5f5f5f;font-family:Oracle Sans,helvetica,sans-serif;">
+        <p>If you require accessibility assistance or accommodation for a disability at any point, let us know by emailing <a href="mailto:accommodation-request_mb@oracle.com" style="color: #00688C;" target="_blank">accommodation-request_mb@oracle.com</a>&nbsp;or by calling +1 888 404 2494 in the U.S.</p></td>
+      </tr>
+      <tr>
+       <td><img alt="" src="https://www.oracle.com/a/ocom/img/footer.png" width="450"></td>
+      </tr>
+     </tbody>
+    </table></td>
+  </tr>
+ </tbody>
+</table>
